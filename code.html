@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9G1MBHP0CH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9G1MBHP0CH');
+</script>
+    <meta charset="UTF-8">
+    <title>VIDE KAMI | hello world</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Concord&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine&text=Max%20Pain">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: var(--wide-width);
+            margin: 0 auto;
+            padding: var(--space-lg) var(--space-md);
+        }
+
+        .project-header {
+            max-width: var(--content-width);
+            margin-bottom: var(--space-lg);
+        }
+
+        .project-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(4rem, 10vw, 8rem);
+            color: var(--sepia);
+            margin-bottom: var(--space-sm);
+            font-weight: 400;
+            line-height: 0.9;
+        }
+
+        .project-description {
+            font-size: 1.15em;
+            line-height: 1.75;
+            color: var(--text-light);
+            margin-bottom: var(--space-md);
+        }
+
+        .project-description p {
+            margin-bottom: 1.5rem;
+        }
+
+        .code-embed {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 16px;
+            padding: var(--space-md);
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.4),
+                0 2px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .gist {
+            max-width: 100% !important;
+            overflow-x: auto;
+        }
+
+        .gist iframe {
+            width: 100% !important;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--space-md) var(--space-sm);
+            }
+
+            .project-header h1 {
+                font-size: clamp(3rem, 12vw, 5rem);
+            }
+
+            .project-description {
+                font-size: 1em;
+            }
+
+            .code-embed {
+                padding: var(--space-sm);
+                border-radius: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="container">
+        <div class="project-header">
+            <h1>Max Pain</h1>
+            <div class="project-description">
+                <p>The Max Pain theory in options trading suggests that the stock price tends to move toward the strike
+                    price where the most options (both calls and puts) expire worthless.</p>
+                <p>This price point causes maximum financial loss to options buyers and minimum loss to options writers, the
+                    majority of which are market makers, who may influence the market toward that price.</p>
+                <p>Though not a guarantee, the max pain price is used as a tool to anticipate market movement near
+                    options expiration dates.</p>
+                <p>This script pulls the open interest of all options at every strike price, calculating mark price and the
+                    cumulative summation to find the peak value. It repeats this for all available expiration dates.</p>
+            </div>
+        </div>
+
+        <div class="code-embed">
+            <script src="https://gist.github.com/videkami/f43a6868b1587f33b555e145fade9bcf.js"></script>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener("load", function () {
+            const gistFrames = document.querySelectorAll('.gist iframe');
+            gistFrames.forEach(frame => {
+                frame.style.width = "100%";
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function loadHTML(url, elementId) {
+                fetch(url)
+                    .then(response => response.text())
+                    .then(html => {
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, 'text/html');
+                        const contentToInsert = doc.body.children.length > 0 ? doc.body.children[0] : null;
+
+                        if (contentToInsert) {
+                            document.getElementById(elementId).appendChild(contentToInsert);
+                        } else {
+                            document.getElementById(elementId).innerHTML = html;
+                        }
+                    })
+                    .catch(error => console.error(`Error loading ${url}:`, error));
+            }
+            loadHTML('/header.html', 'header-placeholder');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9G1MBHP0CH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-9G1MBHP0CH');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VIDE KAMI</title>
+  <link rel="stylesheet" href="navbar.css">
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .knockout-text {
+      font-size: 35vw;
+      text-align: center;
+      background: url('https://i.imgur.com/jHcxsze.jpg') no-repeat center center;
+      background-size: cover;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: .6;
+      letter-spacing: -40px;
+    }
+
+    .photo-link {
+      position: absolute;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+  <a href="love.html" class="photo-link">
+  <div class="knockout-text"><strong>
+      VIDE<br>
+      &nbsp;KAMI
+    </strong>
+  </div>
+  </a>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function loadHTML(url, elementId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const contentToInsert = doc.body.children.length > 0 ? doc.body.children[0] : null;
+
+            if (contentToInsert) {
+              document.getElementById(elementId).appendChild(contentToInsert);
+            } else {
+              document.getElementById(elementId).innerHTML = html;
+            }
+          })
+          .catch(error => console.error(`Error loading ${url}:`, error));
+      }
+      loadHTML('header.html', 'header-placeholder');
+    });
+  </script>
+</body>
+
+</html>

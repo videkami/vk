@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9G1MBHP0CH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9G1MBHP0CH');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>VIDE KAMI | flutter</title>
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-body);
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      overflow-y: auto;
+      overflow-x: hidden;
+      scroll-snap-type: y mandatory;
+    }
+
+    /* Hero Section - Fixed */
+    .app-hero {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 0;
+    }
+
+    .app-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      z-index: -1;
+    }
+
+    .app-hero-content {
+      text-align: center;
+      max-width: 800px;
+      padding: var(--space-md);
+    }
+
+    .app-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 12vw, 10rem);
+      color: var(--sepia);
+      margin-bottom: var(--space-sm);
+      line-height: 0.9;
+      font-weight: 400;
+    }
+
+    .app-hero-subtitle {
+      font-size: clamp(1.25rem, 3vw, 2rem);
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* Spacer for scroll */
+    .scroll-spacer {
+      height: 100vh;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    /* Content Container */
+    .app-content {
+      position: relative;
+      z-index: 1;
+      background: var(--bg-dark);
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    /* Description Section */
+    .app-details {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--space-xl) var(--space-md);
+      font-size: 1.2em;
+      line-height: 1.75;
+    }
+
+    .app-details-header {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      color: var(--sepia);
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: var(--space-md);
+      line-height: 1;
+    }
+
+    .app-details p {
+      margin-bottom: 1.5rem;
+      color: var(--text-light);
+    }
+
+    /* Screenshot Gallery */
+    .app-screenshots {
+      padding: var(--space-xl) var(--space-md) var(--space-xl);
+      background: var(--bg-dark);
+    }
+
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-md);
+      max-width: var(--wide-width);
+      margin: 0 auto;
+    }
+
+    .screenshot-item {
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.4),
+        0 4px 16px rgba(0, 0, 0, 0.3);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .screenshot-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .app-hero h1 {
+        font-size: clamp(3rem, 15vw, 6rem);
+      }
+
+      .app-hero-subtitle {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+      }
+
+      .app-details {
+        font-size: 1em;
+        padding: var(--space-lg) var(--space-sm);
+      }
+
+      .app-screenshots {
+        padding: var(--space-lg) var(--space-sm) var(--space-xl);
+      }
+
+      .screenshot-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+      }
+
+      .screenshot-item {
+        border-radius: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+
+  <!-- Hero Section - Fixed Background -->
+  <section class="app-hero">
+    <div class="app-hero-content">
+      <h1>In The Mood<br>For Love</h1>
+      <p class="app-hero-subtitle">A simple app for meaningful connection</p>
+    </div>
+  </section>
+
+  <!-- Scroll spacer to show hero first -->
+  <div class="scroll-spacer"></div>
+
+  <!-- Content that covers hero on scroll -->
+  <div class="app-content">
+    <!-- Description Section -->
+    <section class="app-details">
+      <h2 class="app-details-header">36 questions to fall in love</h2>
+      <p>Based on Arthur Aron's "36 Questions," this app guides two people through meaningful conversations.</p>
+      <p>Mini-games between each phase create moments of playful relief, balancing the growing emotional intensity of the questions.</p>
+      <p>Built with Flutter for universal accessibility on any phone.</p>
+    </section>
+
+    <!-- Screenshot Gallery -->
+    <section class="app-screenshots">
+      <div class="screenshot-grid">
+        <div class="screenshot-item">
+          <img src="https://i.imgur.com/lTKSyR0.png" alt="Home screen - In The Mood For Love app">
+        </div>
+        <div class="screenshot-item">
+          <img src="https://i.imgur.com/mJIfkoE.png" alt="Question interface">
+        </div>
+        <div class="screenshot-item">
+          <img src="https://i.imgur.com/cwwwCWu.png" alt="Mini game interaction">
+        </div>
+        <div class="screenshot-item">
+          <img src="https://i.imgur.com/MHQ11c7.png" alt="Progress tracking">
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function loadHTML(url, elementId) {
+        fetch(url)
+          .then(response => response.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const contentToInsert = doc.body.children.length > 0 ? doc.body.children[0] : null;
+
+            if (contentToInsert) {
+              document.getElementById(elementId).appendChild(contentToInsert);
+            } else {
+              document.getElementById(elementId).innerHTML = html;
+            }
+          })
+          .catch(error => console.error(`Error loading ${url}:`, error));
+      }
+      loadHTML('/header.html', 'header-placeholder');
+    });
+  </script>
+</body>
+
+</html>
