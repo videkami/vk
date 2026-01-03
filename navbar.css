@@ -90,7 +90,7 @@ h1 {
 }
 
 .icon--menu {
-  stroke: var(--color-primary);
+  stroke: var(--sepia);
 }
 
 .icon--close {
